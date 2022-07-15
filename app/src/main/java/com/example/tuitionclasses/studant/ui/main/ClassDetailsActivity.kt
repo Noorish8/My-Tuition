@@ -21,6 +21,7 @@ class ClassDetailsActivity : AppCompatActivity() {
             val intent = Intent(Intent.ACTION_DIAL)
             intent.data = Uri.parse("tel:0123456789")
             startActivity(intent)
+
         }
         binding.imgUser.setOnClickListener {
             startActivity(
