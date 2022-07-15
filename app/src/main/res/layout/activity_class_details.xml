@@ -10,13 +10,14 @@
         android:id="@+id/videoView1"
         android:layout_width="300dp"
         android:layout_height="200dp"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="20dp" />
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:orientation="horizontal"
@@ -28,6 +29,7 @@
             android:id="@+id/img_call"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:src="@drawable/ic_call_fill0_wght400_grad0_opsz48"
             tools:layout_editor_absoluteX="193dp" />
 
@@ -35,6 +37,7 @@
             android:id="@+id/img_chat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:src="@drawable/ic_chat_fill0_wght400_grad0_opsz48"
             app:layout_constraintEnd_toStartOf="@+id/img_call" />
 
@@ -42,6 +45,7 @@
             android:id="@+id/img_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:src="@drawable/ic_videocam_fill0_wght400_grad0_opsz48" />
 
     </LinearLayout>

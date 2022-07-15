@@ -9,4 +9,7 @@
     <string name="email">Email</string>
     <string name="name">Name</string>
     <string name="register">Register</string>
+    <string name="welcome">WELCOME</string>
+    <string name="student">Student</string>
+    <string name="teacher">Teacher</string>
 </resources>

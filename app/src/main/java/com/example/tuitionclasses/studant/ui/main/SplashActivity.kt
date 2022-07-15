@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.WindowManager
 import com.example.tuitionclasses.R
+import com.example.tuitionclasses.WelComeScreenActivity
 import com.example.tuitionclasses.user.intro.LoginActivity
 
 class SplashActivity : AppCompatActivity() {
@@ -21,7 +22,7 @@ class SplashActivity : AppCompatActivity() {
         // we used the postDelayed(Runnable, time) method
         // to send a message with a delayed time.
         Handler().postDelayed({
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, WelComeScreenActivity::class.java)
             startActivity(intent)
             finish()
         }, 3000) // 3000 is the delayed time in milliseconds.
