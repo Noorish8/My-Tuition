@@ -1,4 +1,4 @@
-package com.example.tuitionclasses.studant
+package com.example.tuitionclasses.student
 
 import android.content.Context
 import androidx.fragment.app.Fragment
@@ -17,10 +17,10 @@ class ViewPagerAdapter (
                 HomeFragment()
             }
             1 -> {
-                studantFragment()
+               ChatFragment()
             }
             2 -> {
-                ChatFragment()
+                studentFragment()
             }
             else -> getItem(position)
         }

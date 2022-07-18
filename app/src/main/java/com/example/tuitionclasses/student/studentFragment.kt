@@ -1,17 +1,13 @@
-package com.example.tuitionclasses.studant
+package com.example.tuitionclasses.student
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.tuitionclasses.R
-import com.example.tuitionclasses.databinding.FragmentChatBinding
 import com.example.tuitionclasses.databinding.FragmentStudantBinding
-import com.example.tuitionclasses.studant.ui.main.ChatAdapter
-import com.example.tuitionclasses.studant.ui.main.ChatModel
 
-class studantFragment : Fragment() {
+class studentFragment : Fragment() {
 
     lateinit var binding: FragmentStudantBinding
 

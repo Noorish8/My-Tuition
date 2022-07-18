@@ -7,6 +7,7 @@ import com.example.tuitionclasses.databinding.ActivityClassDetailsBinding
 import com.example.tuitionclasses.databinding.ActivityTeacherBinding
 import com.example.tuitionclasses.databinding.ActivityWelComeScreenBinding
 import com.example.tuitionclasses.teacher.TeacherActivity
+import com.example.tuitionclasses.user.intro.Constant
 import com.example.tuitionclasses.user.intro.LoginActivity
 
 class WelComeScreenActivity : AppCompatActivity() {
@@ -19,12 +20,15 @@ class WelComeScreenActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnTeacher.setOnClickListener {
-            val intent=Intent(this,TeacherActivity::class.java)
+            val intent=Intent(this,LoginActivity::class.java)
+            intent.putExtra(Constant.userType,"Teacher")
             startActivity(intent)
         }
         binding.btnStudent.setOnClickListener {
             val intent=Intent(this,LoginActivity::class.java)
+            intent.putExtra(Constant.userType,"Student")
             startActivity(intent)
         }
+
     }
 }

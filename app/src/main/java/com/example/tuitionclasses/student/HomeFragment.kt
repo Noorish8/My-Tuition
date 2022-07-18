@@ -1,4 +1,4 @@
-package com.example.tuitionclasses.studant
+package com.example.tuitionclasses.student
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,10 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.tuitionclasses.MapsFragment
-import com.example.tuitionclasses.R
 import com.example.tuitionclasses.databinding.FragmentHomeBinding
-import com.example.tuitionclasses.studant.ui.main.ClassDetailsActivity
+import com.example.tuitionclasses.student.ui.main.ClassDetailsActivity
 
 class HomeFragment : Fragment() {
    lateinit var binding:FragmentHomeBinding

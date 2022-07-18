@@ -4,9 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
 import com.example.tuitionclasses.R
-import com.example.tuitionclasses.databinding.ActivityLoginBinding
 import com.example.tuitionclasses.databinding.ActivityTeacherBinding
-import com.example.tuitionclasses.studant.ViewPagerAdapter
+import com.example.tuitionclasses.student.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayout
 
 class TeacherActivity : AppCompatActivity() {

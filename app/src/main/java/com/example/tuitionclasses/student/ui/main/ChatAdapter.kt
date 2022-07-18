@@ -1,4 +1,4 @@
-package com.example.tuitionclasses.studant.ui.main
+package com.example.tuitionclasses.student.ui.main
 
 import android.view.LayoutInflater
 import android.view.View

@@ -4,9 +4,9 @@ import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.example.tuitionclasses.studant.ChatFragment
-import com.example.tuitionclasses.studant.HomeFragment
-import com.example.tuitionclasses.studant.studantFragment
+import com.example.tuitionclasses.student.ChatFragment
+import com.example.tuitionclasses.student.HomeFragment
+import com.example.tuitionclasses.student.studentFragment
 
 class TeacherViewPagerAdapter (
     var context: Context,
@@ -20,7 +20,7 @@ class TeacherViewPagerAdapter (
                 HomeFragment()
             }
             1 -> {
-                studantFragment()
+                studentFragment()
             }
             2 -> {
                 ChatFragment()

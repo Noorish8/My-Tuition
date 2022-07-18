@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".studant.ChatFragment">
+    tools:context=".student.ChatFragment">
 
    <androidx.recyclerview.widget.RecyclerView
        android:id="@+id/recy_main_screen"
@@ -15,7 +15,7 @@
       app:layout_constraintTop_toTopOf="parent"
       android:layout_marginTop="20dp"
        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-       tools:listitem="@layout/row_chat_list"/>
+       tools:listitem="@layout/row_user_list"/>
 
 
 

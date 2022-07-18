@@ -1,4 +1,4 @@
-package com.example.tuitionclasses.studant.ui.main
+package com.example.tuitionclasses.student.ui.main
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,7 +7,6 @@ import android.os.Handler
 import android.view.WindowManager
 import com.example.tuitionclasses.R
 import com.example.tuitionclasses.WelComeScreenActivity
-import com.example.tuitionclasses.user.intro.LoginActivity
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
