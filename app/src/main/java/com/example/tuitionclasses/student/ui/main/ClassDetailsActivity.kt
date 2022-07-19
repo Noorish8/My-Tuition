@@ -1,38 +1,50 @@
 package com.example.tuitionclasses.student.ui.main
 
-import android.R
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.View
+import android.util.Log
+import android.widget.MediaController
 import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.tuitionclasses.R
 import com.example.tuitionclasses.databinding.ActivityClassDetailsBinding
 
 
 class ClassDetailsActivity : AppCompatActivity() {
-    lateinit var binding:ActivityClassDetailsBinding
+    lateinit var binding: ActivityClassDetailsBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(com.example.tuitionclasses.R.layout.activity_class_details)
+        setContentView(R.layout.activity_class_details)
 
 
-
-
-        binding=ActivityClassDetailsBinding.inflate(layoutInflater)
+        binding = ActivityClassDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+//    val displayYoutubeVideo = binding.videoView1
+//    displayYoutubeVideo.webViewClient = object : WebViewClient() {
+//        override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
+//            return false
+//        }
+//    }
+//    val webSettings = displayYoutubeVideo.settings
+//    webSettings.javaScriptEnabled = true
+//    displayYoutubeVideo.loadUrl("https://www.youtube.com/watch?v=0l69KEx7GQo")
 
 
         val videoView = binding.videoView1
-        videoView.setVideoPath("https://www.youtube.com/watch?v=0l69KEx7GQo")
-        videoView.start()
-
-//        val uri = Uri.parse("/ui/wp-content/uploads/2016/04/videoviewtestingvideo.mp4")
-//        val simpleVideoView =
-//            binding.videoView1 as VideoView // initiate a video view
-//
-//        simpleVideoView.setVideoURI(uri)
-//        simpleVideoView.start()
+        try {
+            val mediaController = MediaController(this)
+            mediaController.setAnchorView(videoView)
+            mediaController.setMediaPlayer(videoView)
+            val videoURI = Uri.parse("https://www.youtube.com/watch?v=0l69KEx7GQo")
+            videoView.setMediaController(mediaController)
+            videoView.setVideoURI(videoURI)
+            videoView.start()
+        }catch (e:Exception){
+            Log.e("ClassDetailsActivity","video view exception$e")
+        }
 
         binding.imgCall.setOnClickListener {
             val intent = Intent(Intent.ACTION_DIAL)
