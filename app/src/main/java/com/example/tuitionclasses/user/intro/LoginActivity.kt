@@ -26,11 +26,11 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-         val txtget =binding.txtGrt
+
         var bundle :Bundle ?=intent.extras
         var txtGrt =bundle!!.getString(Constant.userType)
-        var srtUser = intent.getStringArrayExtra("")
-        txtget.setText(txtGrt)
+        val srtUser = intent.getStringExtra(Constant.userType).toString()
+        binding.txtGrt.setText(srtUser)
 
 
         binding.btnLogin.setOnClickListener {
@@ -46,14 +46,15 @@ class LoginActivity : AppCompatActivity() {
                 binding.etPassword.error = "enter PassWord"
                 binding.etPassword.requestFocus()
             }else{
-                if (txtGrt=="Teacher"){
-                    val intent = Intent(this,TeacherActivity::class.java)
-                    startActivity(intent)
-                }else{
-                    val intent = Intent(this,ContentActivity::class.java)
-                    startActivity(intent)
+                if (srtUser!=null) {
+                    if (srtUser == "Teacher") {
+                        val intent = Intent(this, DashBoard::class.java)
+                        startActivity(intent)
+                    } else {
+                        val intent = Intent(this, ContentActivity::class.java)
+                        startActivity(intent)
+                    }
                 }
-
             login(email,paaWord)
         }
             onBackPressed()
@@ -67,11 +68,10 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
 
-
                 } else {
 
-                    Toast.makeText(this, "user does not exist ",
-                        Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, task.exception.toString(),
+                        Toast.LENGTH_LONG).show()
 
                 }
             }

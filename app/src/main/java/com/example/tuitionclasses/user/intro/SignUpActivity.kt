@@ -3,6 +3,7 @@ package com.example.tuitionclasses.user.intro
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.example.tuitionclasses.R
 import com.example.tuitionclasses.databinding.ActivitySignUpBinding
@@ -25,8 +26,18 @@ class SignUpActivity : AppCompatActivity() {
         binding.btnLogin.setOnClickListener {
             val name = binding.etName.text.toString()
             val email = binding.etEmail.text.toString()
-            val paaWord = binding.etPassword.text.toString()
-            signUp(name,email, paaWord)
+            val passWord = binding.etPassword.text.toString()
+            if (name==null || name== ""){
+                Toast.makeText(this,"enter Email",Toast.LENGTH_SHORT ).show()
+            }else if (email==null || email== ""){
+                Toast.makeText(this,"enter email ",Toast.LENGTH_SHORT ).show()
+            }
+            else if (passWord==null || passWord== ""){
+                Toast.makeText(this,"enter paaWord",Toast.LENGTH_SHORT ).show()
+            }
+            else{
+            signUp(name,email, passWord)
+            }
         }
 
     }
@@ -34,19 +45,20 @@ class SignUpActivity : AppCompatActivity() {
         mAuth.createUserWithEmailAndPassword(email, passWord)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
+                    Log.v("SignUp_task", task.result.toString())
                     addUserToDatabase(name,email, mAuth.currentUser?.uid!!)
                     val intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)
                     // Sign in succ
                     // ess, update UI with the signed-in user's information
-                    finish()
+                   // finish()
 
                 } else {
                     // If sign in fails, display a message to the user.
-
-                    Toast.makeText(this, "some error occurred", Toast.LENGTH_SHORT).show()
-
+                    Toast.makeText(this, task.exception.toString(), Toast.LENGTH_LONG).show()
+                    // what does task actually do
                 }
+
             }
     }
     private fun addUserToDatabase(name: String, email: String, uid:String){
