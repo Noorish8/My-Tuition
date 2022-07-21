@@ -16,12 +16,13 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_)
+        supportActionBar?.hide()
         binding=ActivityLoginBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
         mAuth = FirebaseAuth.getInstance()
 
-        binding.btnRegister.setOnClickListener {
+        binding.btnSignup.setOnClickListener {
             val intent = Intent(this,SignUpActivity::class.java)
             startActivity(intent)
         }
@@ -55,11 +56,12 @@ class LoginActivity : AppCompatActivity() {
                         startActivity(intent)
                     }
                 }
+
+                onBackPressed()
+        }
             login(email,paaWord)
         }
-            onBackPressed()
 
-        }
     }
 
     private fun login(email:String,passWord:String){
@@ -67,12 +69,14 @@ class LoginActivity : AppCompatActivity() {
         mAuth.signInWithEmailAndPassword(email, passWord)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
+                    val intent = Intent(this, DashBoard::class.java)
+                    finish()
+                    startActivity(intent)
 
                 } else {
 
                     Toast.makeText(this, task.exception.toString(),
                         Toast.LENGTH_LONG).show()
-
                 }
             }
 

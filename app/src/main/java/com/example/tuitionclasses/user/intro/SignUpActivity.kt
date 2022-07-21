@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.example.tuitionclasses.R
 import com.example.tuitionclasses.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseException
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
@@ -33,7 +34,7 @@ class SignUpActivity : AppCompatActivity() {
                 Toast.makeText(this,"enter email ",Toast.LENGTH_SHORT ).show()
             }
             else if (passWord==null || passWord== ""){
-                Toast.makeText(this,"enter paaWord",Toast.LENGTH_SHORT ).show()
+                Toast.makeText(this,"enter passWord",Toast.LENGTH_SHORT ).show()
             }
             else{
             signUp(name,email, passWord)
@@ -47,11 +48,11 @@ class SignUpActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Log.v("SignUp_task", task.result.toString())
                     addUserToDatabase(name,email, mAuth.currentUser?.uid!!)
-                    val intent = Intent(this, LoginActivity::class.java)
+                    val intent = Intent(this, DashBoard::class.java)
+                    finish()
                     startActivity(intent)
                     // Sign in succ
                     // ess, update UI with the signed-in user's information
-                   // finish()
 
                 } else {
                     // If sign in fails, display a message to the user.
@@ -64,6 +65,7 @@ class SignUpActivity : AppCompatActivity() {
     private fun addUserToDatabase(name: String, email: String, uid:String){
         mObRef= FirebaseDatabase.getInstance().getReference()
        mObRef.child("user").child(uid).setValue(User(name,email,uid))
+
     }
 
 }

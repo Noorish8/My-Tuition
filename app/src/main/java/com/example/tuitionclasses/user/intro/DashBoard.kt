@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.tuitionclasses.R
 import com.example.tuitionclasses.databinding.ActivityDashBoardBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -12,10 +14,11 @@ import com.google.firebase.database.*
 
 class DashBoard : AppCompatActivity() {
     lateinit var binding: ActivityDashBoardBinding
-    lateinit var database:FirebaseDatabase
-    lateinit var reference: DatabaseReference
+   // lateinit var database:FirebaseDatabase
+    //lateinit var reference: DatabaseReference
     private lateinit var mAuth: FirebaseAuth
     private lateinit var mDbRef : DatabaseReference
+    private lateinit var recyclerView:RecyclerView
     private lateinit var adapter: UserAdapter
     private lateinit var userList:ArrayList<User>
 
@@ -25,68 +28,53 @@ class DashBoard : AppCompatActivity() {
 
         binding = ActivityDashBoardBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        database= FirebaseDatabase.getInstance()
-        reference =database.getReference("Users")
 
-        binding.btnLogin.setOnClickListener {
-            var name = binding.etName.text.toString()
-            var email = binding.etEmail.text.toString()
-            if (name.isNotEmpty() && email.isNotEmpty()) {
-                var model = User(name, email, uid = null)
-                var id = reference.push().key
+        mAuth = FirebaseAuth.getInstance()
+        mDbRef= FirebaseDatabase.getInstance().getReference()
 
-                reference.child(id!!).setValue(model)
-                binding.etName.setText("")
-                binding.etEmail.setText("")
+        userList = ArrayList()
+        adapter = UserAdapter(this, userList)
+        recyclerView = findViewById(R.id.recy_main_screen)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        recyclerView.adapter = adapter
+        //get inside this database and read the value
+
+        mDbRef.child("user").addValueEventListener(object: ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                userList.clear()
+                //the snapShort is particular schema database is
+                for (postSnapshot in snapshot.children){
+                    val currentUser =postSnapshot.getValue(User::class.java)
+                    userList.add(currentUser!!)
+                }
+                adapter.notifyDataSetChanged()
+
             }
+
+            override fun onCancelled(error: DatabaseError) {
+            }
+
+        })
+        //there is different uid so get one by one addValueEventListener
+        //exactly same otherwise isdn't work
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.logout) {
+            mAuth.signOut()
+            val intent = Intent(this@DashBoard,LoginActivity::class.java)
+            finish()
+            startActivity(intent)
+
+            return true
         }
+        return true
     }
 }
-
-
-//        mDbRef= FirebaseDatabase.getInstance().getReference()
-//
-//        mAuth = FirebaseAuth.getInstance()
-//
-//        userList= ArrayList()
-//        adapter= UserAdapter(this,userList)
-//        binding.recyMainScreen.adapter=adapter
-//
-////       val  userList= ArrayList<User>()
-////           binding.recyUser.adapter=UserAdapter(this, userList)
-//
-//        mDbRef.child("user").addValueEventListener(object : ValueEventListener {
-//            override fun onDataChange(snapshot: DataSnapshot) {
-//                //previews list clear
-//                userList.clear()
-//                for (postSnapshot in snapshot.children){
-//                    val currentUser =postSnapshot.getValue(User::class.java)
-//                    userList.add(currentUser!!)
-//                }
-//                //     adapter.notifyDataSetChanged()
-//            }
-//
-//
-//            override fun onCancelled(error: DatabaseError) {
-//            }
-//        })
-//
-//    }
-//
-//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-//        menuInflater.inflate(R.menu.menu,menu)
-//        return super.onCreateOptionsMenu(menu)
-//    }
-//
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        if (item.itemId == R.id.logout) {
-//            mAuth.signOut()
-//            val intent = Intent(this@DashBoard,LoginActivity::class.java)
-//            finish()
-//            startActivity(intent)
-//
-//            return true
-//        }
-//        return true
-//    }
-//  }
