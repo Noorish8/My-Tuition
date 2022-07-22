@@ -16,6 +16,8 @@ class WelComeScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wel_come_screen)
 
+        supportActionBar?.hide()
+
         binding= ActivityWelComeScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

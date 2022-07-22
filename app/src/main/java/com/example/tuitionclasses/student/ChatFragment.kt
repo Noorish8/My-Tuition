@@ -3,10 +3,13 @@ package com.example.tuitionclasses.student
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.tuitionclasses.R
 import com.example.tuitionclasses.databinding.FragmentChatBinding
-import com.example.tuitionclasses.student.ui.main.ChatAdapter
-import com.example.tuitionclasses.student.ui.main.ChatModel
+import com.example.tuitionclasses.user.intro.LoginActivity
 import com.example.tuitionclasses.user.intro.User
 import com.example.tuitionclasses.user.intro.UserAdapter
 import com.google.firebase.auth.FirebaseAuth
@@ -20,77 +23,79 @@ class ChatFragment : Fragment() {
     private lateinit var mDbRef : DatabaseReference
     private lateinit var adapter: UserAdapter
     private lateinit var userList:ArrayList<User>
+
+    private lateinit var recyclerView: RecyclerView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_chat, container, false)
+
         binding=FragmentChatBinding.inflate(inflater)
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        mDbRef= FirebaseDatabase.getInstance().getReference()
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
 
         mAuth = FirebaseAuth.getInstance()
+        mDbRef= FirebaseDatabase.getInstance().getReference()
 
-        userList= ArrayList()
-        adapter= UserAdapter(requireContext(),userList)
-        binding.recyMainScreen.adapter=adapter
+        userList = ArrayList()
+        adapter = UserAdapter(requireContext(), userList)
+       // recyclerView = findViewById(R.id.recy_main_screen)
+       binding.recyMainScreen.layoutManager = LinearLayoutManager(requireContext())
 
-//       val  userList= ArrayList<User>()
-//           binding.recyUser.adapter=UserAdapter(this, userList)
+        binding.recyMainScreen.adapter = adapter
+        //get inside this database and read the value
 
-        mDbRef.child("user").addValueEventListener(object : ValueEventListener {
+        mDbRef.child("user").addValueEventListener(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-                //previews list clear
                 userList.clear()
+                //the snapShort is particular schema database is
                 for (postSnapshot in snapshot.children){
                     val currentUser =postSnapshot.getValue(User::class.java)
-                    userList.add(currentUser!!)
-                }
-                //     adapter.notifyDataSetChanged()
-            }
 
+                    if (mAuth.currentUser?.uid != currentUser?.uid){
+                        userList.add(currentUser!!)
+                    }
+
+                }
+                adapter.notifyDataSetChanged()
+
+            }
 
             override fun onCancelled(error: DatabaseError) {
             }
+
         })
+        //there is different uid so get one by one addValueEventListener
+        //exactly same otherwise isdn't work
+
 
     }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu, menu);
+
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
 
 //    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 //        menuInflater.inflate(R.menu.menu,menu)
 //        return super.onCreateOptionsMenu(menu)
 //    }
-//
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        if (item.itemId == R.id.logout) {
-//            mAuth.signOut()
-//            val intent = Intent(requireContext(),LoginFragment::class.java)
-//            finish()
-//            startActivity(intent)
-//
-//            return true
-//        }
-//        return true
-//    }
-
-//        val imageList: ArrayList<ChatModel> = arrayListOf()
-//        imageList.add(ChatModel("Arham",0))
-//        imageList.add(ChatModel("Zaina",0))
-//        imageList.add(ChatModel("Uzair",0))
-//        imageList.add(ChatModel("Mariya",0))
-//        imageList.add(ChatModel("Ibad",0))
-//        imageList.add(ChatModel("Kinza",0))
-//        binding.recyMainScreen.adapter=ChatAdapter(imageList)
 
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.logout) {
+            mAuth.signOut()
+            val intent = Intent(requireContext(), LoginActivity::class.java)
 
+            startActivity(intent)
 
-    //}
-
-
+            return true
+        }
+        return true
+    }
 }

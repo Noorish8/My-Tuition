@@ -12,4 +12,5 @@
     <string name="welcome">WELCOME</string>
     <string name="student">Student</string>
     <string name="teacher">Teacher</string>
+    <string name="logout">Logout</string>
 </resources>

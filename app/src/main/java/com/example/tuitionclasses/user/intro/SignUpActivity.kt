@@ -19,6 +19,9 @@ class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
+
+        supportActionBar?.hide()
+
         binding= ActivitySignUpBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
@@ -29,7 +32,7 @@ class SignUpActivity : AppCompatActivity() {
             val email = binding.etEmail.text.toString()
             val passWord = binding.etPassword.text.toString()
             if (name==null || name== ""){
-                Toast.makeText(this,"enter Email",Toast.LENGTH_SHORT ).show()
+                Toast.makeText(this,"enter name",Toast.LENGTH_SHORT ).show()
             }else if (email==null || email== ""){
                 Toast.makeText(this,"enter email ",Toast.LENGTH_SHORT ).show()
             }
@@ -48,7 +51,7 @@ class SignUpActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Log.v("SignUp_task", task.result.toString())
                     addUserToDatabase(name,email, mAuth.currentUser?.uid!!)
-                    val intent = Intent(this, DashBoard::class.java)
+                    val intent = Intent(this, LoginActivity::class.java)
                     finish()
                     startActivity(intent)
                     // Sign in succ
@@ -64,7 +67,7 @@ class SignUpActivity : AppCompatActivity() {
     }
     private fun addUserToDatabase(name: String, email: String, uid:String){
         mObRef= FirebaseDatabase.getInstance().getReference()
-       mObRef.child("user").child(uid).setValue(User(name,email,uid))
+       mObRef.child("user").child(uid).setValue(User(name,email,uid,img = null ))
 
     }
 

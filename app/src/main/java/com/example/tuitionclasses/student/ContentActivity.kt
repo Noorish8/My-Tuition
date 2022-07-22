@@ -13,12 +13,13 @@ class ContentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_content)
+        supportActionBar?.hide()
+
 
         // title = "KotlinApp"
         tabLayout = findViewById(R.id.tabLayout)
         viewPager = findViewById(R.id.viewPager)
         tabLayout.addTab(tabLayout.newTab().setText("Home").setIcon(R.drawable.ic_home_fill0_wght400_grad0_opsz48))
-
         tabLayout.addTab(tabLayout.newTab().setText("Chat").setIcon(R.drawable.ic_chat_fill0_wght400_grad0_opsz48))
         tabLayout.addTab(tabLayout.newTab().setText("Student").setIcon(R.drawable.ic_baseline_person_24))
 

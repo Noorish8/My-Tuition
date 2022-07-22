@@ -21,6 +21,7 @@ class ClassDetailsActivity : AppCompatActivity() {
 
         binding = ActivityClassDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
 
 //    val displayYoutubeVideo = binding.videoView1
 //    displayYoutubeVideo.webViewClient = object : WebViewClient() {

@@ -20,10 +20,10 @@ class TeacherViewPagerAdapter (
                 HomeFragment()
             }
             1 -> {
-                studentFragment()
+                ChatFragment()
             }
             2 -> {
-                ChatFragment()
+                studentFragment()
             }
             else -> getItem(position)
         }

@@ -49,7 +49,7 @@ class LoginActivity : AppCompatActivity() {
             }else{
                 if (srtUser!=null) {
                     if (srtUser == "Teacher") {
-                        val intent = Intent(this, DashBoard::class.java)
+                        val intent = Intent(this, TeacherActivity::class.java)
                         startActivity(intent)
                     } else {
                         val intent = Intent(this, ContentActivity::class.java)
