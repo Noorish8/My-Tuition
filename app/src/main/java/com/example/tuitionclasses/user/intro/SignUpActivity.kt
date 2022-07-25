@@ -31,6 +31,9 @@ class SignUpActivity : AppCompatActivity() {
             val name = binding.etName.text.toString()
             val email = binding.etEmail.text.toString()
             val passWord = binding.etPassword.text.toString()
+
+
+
             if (name==null || name== ""){
                 Toast.makeText(this,"enter name",Toast.LENGTH_SHORT ).show()
             }else if (email==null || email== ""){
@@ -46,7 +49,7 @@ class SignUpActivity : AppCompatActivity() {
 
     }
     private fun signUp(name:String,email:String,passWord:String){
-        mAuth.createUserWithEmailAndPassword(email, passWord)
+       mAuth.createUserWithEmailAndPassword(email, passWord)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     Log.v("SignUp_task", task.result.toString())
@@ -67,7 +70,7 @@ class SignUpActivity : AppCompatActivity() {
     }
     private fun addUserToDatabase(name: String, email: String, uid:String){
         mObRef= FirebaseDatabase.getInstance().getReference()
-       mObRef.child("user").child(uid).setValue(User(name,email,uid,img = null ))
+       mObRef.child("user").child(uid).setValue(User(name,email,uid,img = null))
 
     }
 

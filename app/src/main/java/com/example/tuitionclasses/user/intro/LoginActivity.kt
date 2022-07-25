@@ -36,13 +36,15 @@ class LoginActivity : AppCompatActivity() {
 
         binding.btnLogin.setOnClickListener {
 
-            val email =binding.etEmail.text.toString()
-            val paaWord =binding.etPassword.text.toString()
+            val email = binding.etEmail.text.toString()
+            val paaWord = binding.etPassword.text.toString()
 
             val userPassWord =    binding.etPassword.text.toString().trim()
+
             if(email.isEmpty()){
                 binding.etEmail.error="enter Email"
                 binding.etEmail.requestFocus()
+
             } else if (userPassWord.isEmpty()) {
                 binding.etPassword.error = "enter PassWord"
                 binding.etPassword.requestFocus()

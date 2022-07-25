@@ -13,4 +13,7 @@
     <string name="student">Student</string>
     <string name="teacher">Teacher</string>
     <string name="logout">Logout</string>
+    <string name="login_as_teacher">login as Teacher</string>
+    <string name="hello_you">Hello You!</string>
+    <string name="login_as_student">login as Student</string>
 </resources>
