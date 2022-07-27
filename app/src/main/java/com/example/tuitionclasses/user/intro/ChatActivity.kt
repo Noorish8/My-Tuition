@@ -40,6 +40,7 @@ class ChatActivity : AppCompatActivity() {
 
         senderRoom = receiverUid + senderUid
         receiverRoom =senderUid + receiverUid
+
         supportActionBar?.title =name
 
         chatRecyclerView =findViewById(R.id.recy_chat)
@@ -58,14 +59,13 @@ class ChatActivity : AppCompatActivity() {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     messageList.clear()
                     for (postSnapshot in snapshot.children){
-                        val message =postSnapshot.getValue(Message::class.java)
+                        val message = postSnapshot.getValue(Message::class.java)
                         messageList.add(message!!)
                     }
                     messageAdapter.notifyDataSetChanged()
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
                 }
 
             })

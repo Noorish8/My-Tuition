@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".user.intro.LoginActivity"
     android:background="@color/gray">
+
     <TextView
         android:id="@+id/txt_grt"
         android:layout_width="wrap_content"
@@ -19,8 +20,6 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
 
-
-
 <!--        <androidx.appcompat.widget.AppCompatButton-->
 <!--            android:id="@+id/btn_register"-->
 <!--            android:layout_width="wrap_content"-->
@@ -32,7 +31,6 @@
 <!--            android:text="Register"-->
 <!--            android:textColor="@color/black"-->
 <!--            android:textSize="18dp" />-->
-
 
 
     <androidx.appcompat.widget.AppCompatEditText
@@ -50,7 +48,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/txt_grt"/>
+        app:layout_constraintTop_toBottomOf="@+id/txt_grt"/>
 
     <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/et_password"
@@ -59,7 +57,7 @@
                 app:layout_constrainedWidth="true"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="15dp"
-                 android:inputType="number"
+                android:inputType="number"
                 android:drawableStart="@drawable/ic_baseline_lock_24"
                 android:hint="Password"
                 android:background="@drawable/custom_edittext_background"

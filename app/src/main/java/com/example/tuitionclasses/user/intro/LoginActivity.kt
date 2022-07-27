@@ -3,6 +3,7 @@ package com.example.tuitionclasses.user.intro
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.example.tuitionclasses.R
 import com.example.tuitionclasses.databinding.ActivityLoginBinding
@@ -26,10 +27,16 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this,SignUpActivity::class.java)
             startActivity(intent)
         }
+//        val txtget =binding.txtGrt
+//        var bundle : Bundle ?=intent.extras
+      //  var txtGrt =Bundle.getString(Constant.userType)
+//        var srtUser = intent.getStringArrayExtra(Constant.userType).toString()
+//        binding.txtGrt.setText(srtUser)
+
 
 
         var bundle :Bundle ?=intent.extras
-        var txtGrt =bundle!!.getString(Constant.userType)
+        var txtGrt = bundle!!.getString(Constant.userType)
         val srtUser = intent.getStringExtra(Constant.userType).toString()
         binding.txtGrt.setText(srtUser)
 
@@ -38,30 +45,30 @@ class LoginActivity : AppCompatActivity() {
 
             val email = binding.etEmail.text.toString()
             val paaWord = binding.etPassword.text.toString()
+           // val userPassWord = binding.etPassword.text.toString().trim()
 
-            val userPassWord =    binding.etPassword.text.toString().trim()
-
-            if(email.isEmpty()){
+            if(email==null || email== ""){
+                Toast.makeText(this,"enter email ",Toast.LENGTH_SHORT ).show()
                 binding.etEmail.error="enter Email"
                 binding.etEmail.requestFocus()
 
-            } else if (userPassWord.isEmpty()) {
+            } else if (paaWord == null || paaWord == "") {
+                Toast.makeText(this,"enter passWord",Toast.LENGTH_SHORT ).show()
                 binding.etPassword.error = "enter PassWord"
                 binding.etPassword.requestFocus()
             }else{
-                if (srtUser!=null) {
-                    if (srtUser == "Teacher") {
-                        val intent = Intent(this, TeacherActivity::class.java)
-                        startActivity(intent)
-                    } else {
-                        val intent = Intent(this, ContentActivity::class.java)
-                        startActivity(intent)
-                    }
-                }
+                if (srtUser=="Teacher"){
+                    val intent = Intent(this,TeacherActivity::class.java)
+                    startActivity(intent)
+                }else{
+                    val intent = Intent(this,ContentActivity::class.java)
 
+                    startActivity(intent)
+                }
+                login(email,paaWord)
                 onBackPressed()
         }
-            login(email,paaWord)
+            //login(email,paaWord)
         }
 
     }
@@ -71,9 +78,10 @@ class LoginActivity : AppCompatActivity() {
         mAuth.signInWithEmailAndPassword(email, passWord)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    val intent = Intent(this, DashBoard::class.java)
-                    finish()
-                    startActivity(intent)
+//                    Log.v("Log in", task.result.toString())
+//                    val intent = Intent(this, ContentActivity::class.java)
+//                    finish()
+//                    startActivity(intent)
 
                 } else {
 

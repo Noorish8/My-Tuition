@@ -18,6 +18,7 @@ class DashBoard : AppCompatActivity() {
     //lateinit var reference: DatabaseReference
     private lateinit var mAuth: FirebaseAuth
     private lateinit var mDbRef : DatabaseReference
+//    private lateinit var mDbRefTeacher : DatabaseReference
     private lateinit var recyclerView:RecyclerView
     private lateinit var adapter: UserAdapter
     private lateinit var userList:ArrayList<User>
@@ -41,7 +42,18 @@ class DashBoard : AppCompatActivity() {
         recyclerView.adapter = adapter
         //get inside this database and read the value
 
-        mDbRef.child("user").addValueEventListener(object: ValueEventListener{
+        //for teacher
+//        mDbRefTeacher.child("Teacher").addValueEventListener(object :ValueEventListener{
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//
+//            }
+//
+//            override fun onCancelled(error: DatabaseError) {
+//            }
+//
+//        })
+
+        mDbRef.child("student").addValueEventListener(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 userList.clear()
                 //the snapShort is particular schema database is

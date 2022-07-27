@@ -54,6 +54,7 @@ class SignUpActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Log.v("SignUp_task", task.result.toString())
                     addUserToDatabase(name,email, mAuth.currentUser?.uid!!)
+                    addUserToDatabaseTeacher(name,email, mAuth.currentUser?.uid!!)
                     val intent = Intent(this, LoginActivity::class.java)
                     finish()
                     startActivity(intent)
@@ -70,7 +71,12 @@ class SignUpActivity : AppCompatActivity() {
     }
     private fun addUserToDatabase(name: String, email: String, uid:String){
         mObRef= FirebaseDatabase.getInstance().getReference()
-       mObRef.child("user").child(uid).setValue(User(name,email,uid,img = null))
+       mObRef.child("student").child(uid).setValue(User(name,email,uid,img = null))
+
+    }
+    private fun addUserToDatabaseTeacher(name: String, email: String, uid:String){
+        mObRef= FirebaseDatabase.getInstance().getReference()
+        mObRef.child("Teacher").child(uid).setValue(User(name,email,uid,img = null))
 
     }
 

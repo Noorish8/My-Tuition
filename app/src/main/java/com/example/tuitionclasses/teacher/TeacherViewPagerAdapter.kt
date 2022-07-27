@@ -20,7 +20,7 @@ class TeacherViewPagerAdapter (
                 HomeFragment()
             }
             1 -> {
-                ChatFragment()
+                TeacherChatFragment()
             }
             2 -> {
                 studentFragment()
