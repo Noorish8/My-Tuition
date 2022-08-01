@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".user.intro.LoginActivity"
-    android:background="@color/gray">
+    android:background="@color/white">
 
     <TextView
         android:id="@+id/txt_grt"
@@ -31,26 +31,37 @@
 <!--            android:text="Register"-->
 <!--            android:textColor="@color/black"-->
 <!--            android:textSize="18dp" />-->
-
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/et_email"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginHorizontal="18dp"
-        android:layout_marginTop="35dp"
-        android:background="@drawable/custom_edittext_background"
-        android:drawableStart="@drawable/ic_baseline_email_24"
-        android:drawableTint="@color/teal_200"
-        android:hint="Email"
-        android:maxLines="1"
-        android:paddingHorizontal="10dp"
+        android:layout_height="230dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_grt"/>
+        app:cardCornerRadius="30dp"
+        android:layout_marginHorizontal="20dp"
+        app:cardBackgroundColor="@color/teal_200"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btn_login">
 
-    <androidx.appcompat.widget.AppCompatEditText
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="18dp"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/custom_edittext_background"
+                android:drawableStart="@drawable/ic_baseline_email_24"
+                android:drawableTint="@color/teal_200"
+                android:hint="Email"
+                android:maxLines="1"
+                android:paddingHorizontal="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.542"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+            <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/et_password"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
@@ -67,6 +78,19 @@
                 app:layout_constraintEnd_toEndOf="@+id/et_email"
                 app:layout_constraintStart_toStartOf="@+id/et_email"
                 app:layout_constraintTop_toBottomOf="@+id/et_email" />
+
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
 
 
     <androidx.appcompat.widget.AppCompatButton

@@ -8,12 +8,13 @@
         android:id="@+id/txt_send_msg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="This is send message"
+        android:hint=""
         android:padding="10dp"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_margin="5dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/custome_receive_edittex"/>
+        android:background="@drawable/custom_btn_chat_sent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -53,15 +53,21 @@
             android:exported="false" />
         <activity
             android:name=".teacher.TeacherActivity"
-            android:exported="false" />
-        <activity
-            android:name=".student.ui.main.SplashActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".student.ui.main.SplashActivity"
+            android:exported="true">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
         <activity
             android:name=".user.intro.LoginActivity"

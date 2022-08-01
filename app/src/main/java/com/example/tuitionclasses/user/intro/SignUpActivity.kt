@@ -7,6 +7,8 @@ import android.util.Log
 import android.widget.Toast
 import com.example.tuitionclasses.R
 import com.example.tuitionclasses.databinding.ActivitySignUpBinding
+import com.example.tuitionclasses.student.ContentActivity
+import com.example.tuitionclasses.teacher.TeacherActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseException
 import com.google.firebase.database.DatabaseReference

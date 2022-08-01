@@ -12,11 +12,12 @@ class TeacherActivity : AppCompatActivity() {
     lateinit var binding:ActivityTeacherBinding
     lateinit var tabLayout: TabLayout
     lateinit var viewPager: ViewPager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_teacher)
 
-        binding= ActivityTeacherBinding.inflate(layoutInflater)
+        binding = ActivityTeacherBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         tabLayout = findViewById(R.id.tabLayout)

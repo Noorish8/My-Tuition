@@ -43,8 +43,8 @@ class ChatFragment : Fragment() {
 
         userList = ArrayList()
         adapter = UserAdapter(requireContext(), userList)
-       // recyclerView = findViewById(R.id.recy_main_screen)
-       binding.recyMainScreen.layoutManager = LinearLayoutManager(requireContext())
+        // recyclerView = findViewById(R.id.recy_main_screen)
+        binding.recyMainScreen.layoutManager = LinearLayoutManager(requireContext())
 
         binding.recyMainScreen.adapter = adapter
         //get inside this database and read the value
@@ -54,7 +54,7 @@ class ChatFragment : Fragment() {
                 userList.clear()
                 //the snapShort is particular schema database is
                 for (postSnapshot in snapshot.children){
-                    val currentUser = postSnapshot.getValue(User::class.java)
+                    val currentUser =postSnapshot.getValue(User::class.java)
 
                     if (mAuth.currentUser?.uid != currentUser?.uid){
                         userList.add(currentUser!!)
@@ -64,7 +64,6 @@ class ChatFragment : Fragment() {
                 adapter.notifyDataSetChanged()
 
             }
-
             override fun onCancelled(error: DatabaseError) {
             }
 

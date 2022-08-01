@@ -12,12 +12,20 @@
         <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/drawable-v24/ic_videocam_fill0_wght400_grad0_opsz48.xml" value="0.152" />
         <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/drawable/btn_top.xml" value="0.152" />
         <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/drawable/custom_btn.xml" value="0.165" />
+        <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/drawable/custom_btn_chat_sent.xml" value="0.159" />
+        <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/drawable/custom_edittext_background.xml" value="0.133" />
+        <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/drawable/custom_messagebox.xml" value="0.133" />
+        <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/drawable/custome_receive_edittex.xml" value="0.133" />
         <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.152" />
         <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.152" />
         <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/drawable/ic_login_bg.xml" value="0.152" />
+        <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/drawable/ic_right_arrow.xml" value="0.133" />
         <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/drawable/login_btn.xml" value="0.152" />
+        <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/drawable/row_send_msg.xml" value="0.133" />
+        <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/layout/activity_chat.xml" value="0.17962962962962964" />
         <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/layout/activity_class_details.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/layout/activity_content.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/layout/activity_dash_board.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/layout/activity_login_.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/layout/activity_login_fragment.xml" value="0.25885416666666666" />
         <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/layout/activity_main.xml" value="0.25885416666666666" />
@@ -25,13 +33,18 @@
         <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/layout/activity_sign_up.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/layout/activity_splash.xml" value="0.25" />
         <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/layout/activity_teacher.xml" value="0.25885416666666666" />
-        <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/layout/activity_wel_come_screen.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/layout/activity_wel_come_screen.xml" value="0.25" />
         <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/layout/fragment_chat.xml" value="0.24489795918367346" />
         <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/layout/fragment_home.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/layout/fragment_main.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/layout/fragment_maps.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/layout/fragment_studant.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/layout/fragment_teacher_chat.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/layout/row_chat_list.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/layout/row_receive_msg.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/layout/row_send_msg.xml" value="0.271875" />
+        <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/layout/row_user_list.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/menu/menu.xml" value="0.271875" />
         <entry key="..\:/Users/Noorish/AndroidStudioProjects/TuitionClasses/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.152" />
       </map>
     </option>

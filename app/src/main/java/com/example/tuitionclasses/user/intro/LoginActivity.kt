@@ -35,8 +35,8 @@ class LoginActivity : AppCompatActivity() {
 
 
 
-        var bundle :Bundle ?=intent.extras
-        var txtGrt = bundle!!.getString(Constant.userType)
+//        var bundle :Bundle ?=intent.extras
+//        var txtGrt = bundle!!.getString(Constant.userType)
         val srtUser = intent.getStringExtra(Constant.userType).toString()
         binding.txtGrt.setText(srtUser)
 
@@ -65,8 +65,8 @@ class LoginActivity : AppCompatActivity() {
 
                     startActivity(intent)
                 }
-                login(email,paaWord)
-                onBackPressed()
+                login(email, paaWord )
+               // onBackPressed()
         }
             //login(email,paaWord)
         }
@@ -78,13 +78,12 @@ class LoginActivity : AppCompatActivity() {
         mAuth.signInWithEmailAndPassword(email, passWord)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-//                    Log.v("Log in", task.result.toString())
+                    Log.v("Log in", task.result.toString())
 //                    val intent = Intent(this, ContentActivity::class.java)
-//                    finish()
+                    finish()
 //                    startActivity(intent)
 
                 } else {
-
                     Toast.makeText(this, task.exception.toString(),
                         Toast.LENGTH_LONG).show()
                 }
